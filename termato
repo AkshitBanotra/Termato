@@ -1,0 +1,132 @@
+#!/usr/bin/env bash
+
+source "${HOME}/.config/termato/animations"
+
+
+##################################################
+
+Work="30"
+Break="5"
+Long_Break="15"
+
+##################################################
+
+title () {
+	figlet "POMODORO-CLI" | lolcat
+	echo ""
+	echo ""
+}
+
+###################################################
+
+timer () {
+	tput civis
+	trap "tput cnorm;exit" INT TERM EXIT
+
+	local time="${1}"
+
+        for (( k=time; k>=1; k-- ));do
+		printf "\rTime Left: %02d mins" "$k"
+		sleep 1m
+	done
+	tput cnorm
+}
+
+##################################################
+
+while true;do
+       clear	
+       title 
+       text_animation "What do you want to focus on?" "BRIGHT_CYAN"
+       echo ""
+       read -p "
+>> " focus
+       echo ""
+       echo ""
+       text_animation "How many sessions?" "BRIGHT_GREEN"
+       sleep 0.4s
+       text_animation " [Enter input from 1-5]" "RED"
+       read -p "
+>> " sessions
+       echo ""
+       echo ""
+       if [[ ${sessions} =~ ^([1-5])$ ]];then
+       text_animation "${sessions} sessions selected..."
+       echo ""
+       sleep 0.2s
+       clear
+       tput civis
+       trap "tput cnorm;exit" INT TERM EXIT
+       for (( j=1; j<=sessions; j++ ));do
+	       clear
+	       title
+	       text_animation "|||||||||||||||||||||||||||||||||" "BRIGHT_CYAN"
+	       echo ""
+	       echo ""
+	       sleep 0.2s
+	       text_animation "Work:-"
+	       echo ""
+	       text_animation "Focus Block | ${focus}: ${j}"
+	       echo ""
+	       echo ""
+	       echo "----------------"
+	       echo ""
+	       echo ""
+	       timer ${Work}
+	       notify-send "Work Timer completed"
+               paplay "${HOME}/.config/termato/sounds/Mallet.ogg"
+	       sleep 0.2s
+	       echo ""
+	       text_animation "Focus timer finished..." "BRIGHT_GREEN"
+	       if [[ $j -ne ${sessions} ]];then
+		       sleep 0.5s
+		       clear
+		       title
+		       text_animation "==========================" "RED"
+		       echo ""
+		       echo ""
+		       sleep 0.2s
+		       text_animation "Short-Break:-" "BRIGHT_YELLOW"
+		       echo ""
+		       echo ""
+		       echo "---------------"
+		       echo ""
+		       echo ""
+		       timer ${Break}
+		       notify-send "Break timer finished!"
+		       paplay "${HOME}/.config/termato/sounds/fantasy.mp3"
+		       sleep 0.2s
+		       echo ""
+		       text_animation "Break over. Let’s get back in sync and move forward." "BRIGHT_GREEN"
+	       else
+		       clear
+		       title
+		       sleep 0.2s
+		       text_animation "All sessions completed successfully. You did great! Now initiating long break sequence…" "BRIGHT_YELLOW"
+		       echo ""
+		       echo ""
+		       text_animation "||||||||||||||||||||||||||||||||||||" "RED"
+		       echo ""
+		       echo ""
+		       text_animation "Long Break:"
+		       echo ""
+		       echo ""
+		       echo "-----------------"
+		       echo ""
+		       echo ""
+		       timer ${Long_Break}
+		       notify-send "Long Break finished!" "All sessions have been completed!"
+		       paplay "${HOME}/.config/termato/sounds/Counterpoint.ogg"
+		       echo ""
+		       text_animations "Long break finished!"
+		       echo ""
+		       echo ""
+		       text_animation "Exiting pomodoro-cli..." "RED"
+		       sleep 1.5ss
+		       clear
+		       exit
+		       tput cnorm
+	       fi
+       done
+       fi
+done
