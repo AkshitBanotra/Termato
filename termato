@@ -122,7 +122,7 @@ while true;do
 		       echo ""
 		       echo ""
 		       text_animation "Exiting pomodoro-cli..." "RED"
-		       sleep 1.5ss
+		       sleep 1.5s
 		       clear
 		       exit
 		       tput cnorm
