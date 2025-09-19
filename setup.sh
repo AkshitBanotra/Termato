@@ -63,6 +63,7 @@ sleep 0.2s
 source "${HOME}/.bashrc"
 
 rm -rf "${HOME}/Termato/"
+rm "${HOME}/.config/termato/setup.sh"
 
 echo "Done!"
 

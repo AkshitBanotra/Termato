@@ -12,7 +12,7 @@ Long_Break="15"
 ##################################################
 
 title () {
-	figlet "POMODORO-CLI" | lolcat
+	figlet "TERMATO" | lolcat
 	echo ""
 	echo ""
 }
