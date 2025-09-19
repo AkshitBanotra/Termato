@@ -42,19 +42,23 @@ sleep 0.5s
 clear
 mkdir -p "${HOME}"/.config/termato/
 
-mv "${HOME}"/termato/* "${HOME}"/.config/termato/
+mv "${HOME}"/Termato/* "${HOME}"/.config/termato/
 
 cd "${HOME}"
 
+sleep 0.2s
+
 echo "Setting up permissions..."
 
-chmod +x "${HOME}"/.config/termato/termato && chmod +x "${HOME}"/.config/termato/animations
+sleep 0.2s
 
-sudo echo "alias termato=\"\"${HOME}\"/.config/termato/termato\"" >> \"${HOME}\"/.bashrc
+chmod +x "${HOME}/.config/termato/termato" && chmod +x "${HOME}/.config/termato/animations"
 
-source "${HOME}"/.bashrc
+sudo echo "alias termato=\"${HOME}/.config/termato/termato\"" >> "${HOME}/.bashrc"
 
-rm -rf "${HOME}"/termato/
+source "${HOME}/.bashrc"
+
+rm -rf "${HOME}/Termato/"
 
 echo "Done!"
 
