@@ -44,6 +44,8 @@ mkdir -p "${HOME}"/.config/termato/
 
 mv "${HOME}"/Termato/* "${HOME}"/.config/termato/
 
+sleep 0.2s
+
 cd "${HOME}"
 
 sleep 0.2s
@@ -56,6 +58,8 @@ chmod +x "${HOME}/.config/termato/termato" && chmod +x "${HOME}/.config/termato/
 
 sudo echo "alias termato=\"${HOME}/.config/termato/termato\"" >> "${HOME}/.bashrc"
 
+sleep 0.2s
+
 source "${HOME}/.bashrc"
 
 rm -rf "${HOME}/Termato/"
@@ -63,4 +67,3 @@ rm -rf "${HOME}/Termato/"
 echo "Done!"
 
 clear
-
