@@ -43,12 +43,11 @@ All of these ship with or are easily available on most Linux distros.
  
 ```bash
 # 1. Clone the repo
-git clone https://github.com/yourusername/termato.git ~/termato
+git clone https://github.com/AkshitBanotra/termato.git ~/termato
 cd ~/termato
  
 # 2. Make the script executable and rename it
-chmod +x termato.sh
-mv termato.sh termato
+chmod +x termato
  
 # 3. Move it to ~/.local/bin
 mkdir -p ~/.local/bin
@@ -84,9 +83,9 @@ Notifications and sound fire at the end of each phase. The typewriter animation 
 Open the script and edit the variables at the top:
  
 ```bash
-WORK=25          # Work session duration in minutes
-BREAK=5          # Short break duration in minutes
-LONG_BREAK=15    # Long break duration in minutes
+Work=25          # Work session duration in minutes
+Break=5          # Short break duration in minutes
+Long_Break=15    # Long break duration in minutes
 ```
  
 No flags, no config file — just change the values and save. Keeping it simple.
