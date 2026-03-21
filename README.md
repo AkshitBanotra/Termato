@@ -2,8 +2,6 @@
  
 # 🍅 termato
  
-> *Slice your time. Kill the noise. Ship the work.*
- 
 ![Shell](https://img.shields.io/badge/Shell-Bash-4EAA25?style=flat-square&logo=gnubash&logoColor=white)
 ![Platform](https://img.shields.io/badge/Platform-Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
@@ -11,7 +9,6 @@
  
 A terminal Pomodoro timer written in pure Bash. Colors, sound alerts, desktop notifications, and a typewriter animation — straight in your shell, no dependencies beyond what your system already has.
  
-**No Electron. No Python. No excuses.**
  
 </div>
  
@@ -19,11 +16,11 @@ A terminal Pomodoro timer written in pure Bash. Colors, sound alerts, desktop no
  
 ## Features
  
-- 🎨 **Colored terminal output** — visually distinct work, break, and long break phases
-- ⌨️ **Typewriter animation** — because the terminal should have personality
-- 🔔 **Desktop notifications** — via `notify-send`
-- 🔊 **Sound alerts** — via `paplay`
-- 🔧 **Easy configuration** — change durations by editing three variables at the top of the script
+-  **Colored terminal output** — visually distinct work, break, and long break phases
+-  **Typewriter animation** — because the terminal should have personality
+-  **Desktop notifications** — via `notify-send`
+-  **Sound alerts** — via `paplay`
+-  **Easy configuration** — change durations by editing three variables at the top of the script
  
 ---
  
