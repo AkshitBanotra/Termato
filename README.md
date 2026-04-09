@@ -44,8 +44,7 @@ git clone https://github.com/AkshitBanotra/termato.git ~/termato
 cd ~/termato
  
 # 2. Make the script executable and rename it
-chmod +x termato
-chmod +x animations
+chmod +x termato && chmod +x animations
  
 # 3. Move it to ~/.local/bin
 mkdir -p ~/.local/bin
